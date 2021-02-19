@@ -1,11 +1,13 @@
-require('dotenv').config()
-const log = require("loglevel");
-//setup log level
-require("./setup");
-const app = require("./app");
-const port = process.env.NODE_PORT || 3006;
+const express = require('express');
+const path = require('path');
 
-app.listen(port,()=>{
-    log.info('listening on port:' + port);
-    log.debug("debug log level!");
+const app = express();
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Listening on port: ${port}!`);
+});
+
+app.get('/capture/:capture_id', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/index.html'));
 });

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <meta http-equiv="refresh" content="0;url=https://treetracker.org" />
+    <meta property="og:url" content="https://treetracker.org" />
+  </head>
+  <script>
+    const path = window.location.pathname
+    const capture_id = path.split('/').pop()
+
+    const thumbnail = document.createElement('meta')
+    thumbnail.setAttribute('property','og:image')
+    thumbnail.content = `mapnik.treetracker.org/preview/capture/${capture_id}.png`
+    document.getElementsByTagName('head')[0].appendChild(thumbnail) 
+
+    const height = document.createElement('meta')
+    height.setAttribute('property','og:image:height')
+    height.content = `300`
+    document.getElementsByTagName('head')[0].appendChild(height) 
+
+    const width = document.createElement('meta')
+    width.setAttribute('property','og:image:width')
+    width.content = `300`
+    document.getElementsByTagName('head')[0].appendChild(width) 
+
+    const title = document.createElement('meta')
+    title.setAttribute('property','og:title')
+    title.content = `Tree #${capture_id} ~ Greenstand`
+    document.getElementsByTagName('head')[0].appendChild(title) 
+
+    const description = document.createElement('meta')
+    description.setAttribute('property','og:description')
+    description.content = `Find out more about Tree #${capture_id}, planted by Greenstand. Treetracker is the basic mechanism to connect tree growers all over the world to an international audience.`
+    document.getElementsByTagName('head')[0].appendChild(description) 
+  </script>
+</html>
