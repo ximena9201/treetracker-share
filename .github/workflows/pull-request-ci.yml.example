@@ -1,5 +1,5 @@
 
-name: CI for New Pull Requests
+name: Treetracker-share CI for New Pull Requests
 
 on:
   pull_request:
