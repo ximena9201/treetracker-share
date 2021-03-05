@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: npm install
-        run: npm i
+        run: npm i && npm install eslint --save-dev
       - name: npm clean install
         run: npm ci
         working-directory: ${{ env.project-directory }}
