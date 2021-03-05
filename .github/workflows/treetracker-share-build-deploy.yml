@@ -27,6 +27,9 @@ jobs:
       - name: npm install
         run: npm i
         working-directory: ${{ env.project-directory }}
+      - name: create eslint config file 
+        run: npx eslint --init
+        working-directory: ${{ env.project-directory }}
       - name: run ESLint
         run: npm run lint
         working-directory: ${{ env.project-directory }}
