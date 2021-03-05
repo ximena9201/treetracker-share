@@ -24,11 +24,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: npm install
-        run: npm i
-        working-directory: ${{ env.project-directory }}
-      - name: create eslint config file 
-        run: eslint --init
+      - name: npm clean install
+        run: npm ci
         working-directory: ${{ env.project-directory }}
       - name: run ESLint
         run: npm run lint
