@@ -84,11 +84,11 @@ jobs:
       !contains(github.event.head_commit.message, 'skip-ci') &&
       github.event_name == 'push' &&
       github.repository == 'ximena9201/treetracker-share'
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: '12.x'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
 #       - run: npm i -g semantic-release @semantic-release/{git,exec,changelog}
 #       - run: semantic-release
 #         env:
