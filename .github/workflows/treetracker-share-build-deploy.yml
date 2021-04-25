@@ -76,4 +76,9 @@ jobs:
           push: true
           tags: ximena9210/treetracker-share:${{ steps.package-version.outputs.current-version }}-latest
 
-  
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+
