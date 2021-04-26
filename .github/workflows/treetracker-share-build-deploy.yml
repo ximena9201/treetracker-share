@@ -19,10 +19,6 @@ jobs:
     if: |
       !contains(github.event.head_commit.message, 'skip-ci')
     steps:
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       - uses: actions/checkout@v2
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
@@ -79,6 +75,26 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ximena9210/treetracker-share:${{ steps.package-version.outputs.current-version }}-latest
+          
+      - name: Notify slack success
+        if: success()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: Discontract/github-action-slack-notify-deployment@v1
+        with:
+          channel_id: D016X0GSZKR
+          status: SUCCESS
+          color: good
+
+      - name: Notify slack fail
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: Discontract/github-action-slack-notify-deployment@v1
+        with:
+          channel_id: D016X0GSZKR
+          status: FAILED
+          color: danger
 
 
 
