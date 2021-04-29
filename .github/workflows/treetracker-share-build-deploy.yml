@@ -82,7 +82,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: Discontract/github-action-slack-notify-deployment@v1
         with:
-          channel_id: D016X0GSZKR
+          channel: cloud-notifications
           status: SUCCESS
           color: good
 
@@ -92,7 +92,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: Discontract/github-action-slack-notify-deployment@v1
         with:
-          channel_id: D016X0GSZKR
+          channel: cloud-notifications
           status: FAILED
           color: danger
 
